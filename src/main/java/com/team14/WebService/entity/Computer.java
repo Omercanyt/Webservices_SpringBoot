@@ -54,5 +54,4 @@ public class Computer {
     @OneToMany(targetEntity = Rating.class, cascade = CascadeType.ALL)
     @JoinColumn(name = "computer_fk", referencedColumnName = "computerID")
     private List<Rating> computerRatings;
-
 }

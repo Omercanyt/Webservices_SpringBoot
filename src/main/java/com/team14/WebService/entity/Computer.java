@@ -1,4 +1,4 @@
-package com.team14.WebService.entities;
+package com.team14.WebService.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

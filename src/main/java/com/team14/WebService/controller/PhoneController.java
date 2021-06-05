@@ -31,4 +31,23 @@ public class PhoneController {
         return phoneService.getPhoneByBrand(brand);
     }
 
+    @GetMapping("/getPhoneByModel/{model}")
+    public List<Phone> getPhoneByModel(@PathVariable String model){
+        return phoneService.getPhoneByBrand(model);
+    }
+
+    @GetMapping("/getPhoneByScreenSize/{screenSize}")
+    public List<Phone> getPhoneByScreenSize(@PathVariable String screenSize){
+        return phoneService.getPhoneByScreenSize(screenSize);
+    }
+
+    @GetMapping("/getPhoneByInternalMemory/{internalMemory}")
+    public List<Phone> getPhoneByInternalMemory(@PathVariable String internalMemory){
+        return phoneService.getPhoneByScreenSize(internalMemory);
+    }
+
+    @GetMapping("/getPhoneByPrice/{price}")
+    public List<Phone> getPhoneByPrice(@PathVariable Float price){
+        return phoneService.getPhoneByPrice(price);
+    }
 }

@@ -39,4 +39,92 @@ public class PhoneService {
         }
         return phones2;
     }
+
+    public List<Phone> getPhoneByModel(String s){
+        Phone temp = new Phone();
+        List<Phone> phones = new ArrayList<>();
+        List<Phone> phones2 = new ArrayList<>();
+        phones=getAllPhone();
+        for (Phone phone : phones) {
+            if (phone.getPhone_brand().equals(s)) {
+                temp = phone;
+                phones2.add(temp);
+            }
+        }
+        return phones2;
+    }
+
+    public List<Phone> getPhoneByScreenSize(String s){
+        Phone temp = new Phone();
+        List<Phone> phones = new ArrayList<>();
+        List<Phone> phones2 = new ArrayList<>();
+        phones=getAllPhone();
+        for (Phone phone : phones) {
+            if (phone.getPhone_screenSize().equals(s)) {
+                temp = phone;
+                phones2.add(temp);
+            }
+        }
+        return phones2;
+    }
+
+    public List<Phone> getPhoneByInternalMemory(String s){
+        Phone temp = new Phone();
+        List<Phone> phones = new ArrayList<>();
+        List<Phone> phones2 = new ArrayList<>();
+        phones=getAllPhone();
+        for (Phone phone : phones) {
+            if (phone.getPhone_internalMemory().equals(s)) {
+                temp = phone;
+                phones2.add(temp);
+            }
+        }
+        return phones2;
+    }
+
+    public List<Phone> getPhoneByPrice(float s){
+        Phone temp = new Phone();
+        List<Phone> phones = new ArrayList<>();
+        List<Phone> phones2 = new ArrayList<>();
+        phones=getAllPhone();
+        for (Phone phone : phones) {
+            if (phone.getPrice() == s) {
+                temp = phone;
+                phones2.add(temp);
+            }
+        }
+        return phones2;
+    }
+
+    public List<Phone> SearchPhoneByModelAndBrand(String  model,String brand){
+        Phone temp = new Phone();
+        List<Phone> phones = new ArrayList<>();
+        List<Phone> phones2 = new ArrayList<>();
+        phones=getAllPhone();
+
+        for (Phone phone : phones) {
+            if(model.equals(phone.getPhone_model()) && brand.equals(phone.getPhone_brand())) {
+                temp = phone;
+                phones2.add(temp);
+            }
+
+        }
+        return phones2;
+    }
+
+    public List<Phone> SearchPhoneByScreenSize_MemoryAndBrand(String  screen,String memory,String  brand ){
+        Phone temp = new Phone();
+        List<Phone> phones = new ArrayList<>();
+        List<Phone> phones2 = new ArrayList<>();
+        phones=getAllPhone();
+
+        for (Phone phone : phones) {
+            if(screen.equals(phone.getPhone_screenSize()) && memory.equals(phone.getPhone_internalMemory()) && brand.equals(phone.getPhone_brand())) {
+                temp = phone;
+                phones2.add(temp);
+            }
+
+        }
+        return phones2;
+    }
 }

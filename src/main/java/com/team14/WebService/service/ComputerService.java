@@ -52,4 +52,125 @@ public class ComputerService {
         return computers2;
     }
 
+    public List<Computer> getComputerByScreenSize(String s){
+        Computer temp = new Computer();
+        List<Computer> computers = new ArrayList<>();
+        List<Computer> computers2 = new ArrayList<>();
+        computers=getAllComputer();
+        for (Computer computer : computers) {
+            if (computer.getComputerScreenSize().equals(s)) {
+                temp = computer;
+                computers2.add(temp);
+            }
+        }
+        return computers2;
+    }
+
+    public List<Computer> getComputerByModel(String s){
+        Computer temp = new Computer();
+        List<Computer> computers = new ArrayList<>();
+        List<Computer> computers2 = new ArrayList<>();
+        computers=getAllComputer();
+        for (Computer computer : computers) {
+            if (computer.getComputerModel().equals(s)) {
+                temp = computer;
+                computers2.add(temp);
+            }
+        }
+        return computers2;
+    }
+
+    public List<Computer> getComputerByScreenResolution(String s){
+        Computer temp = new Computer();
+        List<Computer> computers = new ArrayList<>();
+        List<Computer> computers2 = new ArrayList<>();
+        computers=getAllComputer();
+        for (Computer computer : computers) {
+            if (computer.getScreenResolution().equals(s)) {
+                temp = computer;
+                computers2.add(temp);
+            }
+        }
+        return computers2;
+    }
+
+    public List<Computer> getComputerByProcessor(String s){
+        Computer temp = new Computer();
+        List<Computer> computers = new ArrayList<>();
+        List<Computer> computers2 = new ArrayList<>();
+        computers=getAllComputer();
+        for (Computer computer : computers) {
+            if (computer.getProcessor().equals(s)) {
+                temp = computer;
+                computers2.add(temp);
+            }
+        }
+        return computers2;
+    }
+
+    public List<Computer> getComputerByMemory(String s){
+        Computer temp = new Computer();
+        List<Computer> computers = new ArrayList<>();
+        List<Computer> computers2 = new ArrayList<>();
+        computers=getAllComputer();
+        for (Computer computer : computers) {
+            if (computer.getMemory().equals(s)) {
+                temp = computer;
+                computers2.add(temp);
+            }
+        }
+        return computers2;
+    }
+
+    public List<Computer> getComputerByStorageCapacity(String s){
+        Computer temp = new Computer();
+        List<Computer> computers = new ArrayList<>();
+        List<Computer> computers2 = new ArrayList<>();
+        computers=getAllComputer();
+        for (Computer computer : computers) {
+            if (computer.getStorageCapacity().equals(s)) {
+                temp = computer;
+                computers2.add(temp);
+            }
+        }
+        return computers2;
+    }
+
+    public List<Computer> SearchComputerByMaximumPriceAndBrand(float price,String brand){
+        Computer temp = new Computer();
+        List<Computer> computers = new ArrayList<>();
+        List<Computer> computers2 = new ArrayList<>();
+        computers=getAllComputer();
+
+
+        for (Computer computer : computers) {
+            if(price<=computer.getComputerPrice() && brand.equals(computer.getComputerBrand())) {
+                temp = computer;
+                computers2.add(temp);
+            }
+
+        }
+        return computers2;
+    }
+
+    public List<Computer> SearchComputerByPorcessor_Memory_Capacity(String  proces,String memory, String capacity){
+        Computer temp = new Computer();
+        List<Computer> computers = new ArrayList<>();
+        List<Computer> computers2 = new ArrayList<>();
+        computers=getAllComputer();
+
+
+        for (Computer computer : computers) {
+            if(memory.equals(computer.getMemory()) && proces.equals(computer.getProcessor()) && capacity.equals(computer.getStorageCapacity())) {
+                temp = computer;
+                computers2.add(temp);
+            }
+
+        }
+        return computers2;
+    }
+
+
+
+
 }

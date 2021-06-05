@@ -82,7 +82,7 @@ public class PhoneService {
         return phones2;
     }
 
-    public List<Phone> getPhoneByPrice(Float s){
+    public List<Phone> getPhoneByPrice(float s){
         Phone temp = new Phone();
         List<Phone> phones = new ArrayList<>();
         List<Phone> phones2 = new ArrayList<>();
@@ -92,6 +92,38 @@ public class PhoneService {
                 temp = phone;
                 phones2.add(temp);
             }
+        }
+        return phones2;
+    }
+
+    public List<Phone> SearchPhoneByModelAndBrand(String  model,String brand){
+        Phone temp = new Phone();
+        List<Phone> phones = new ArrayList<>();
+        List<Phone> phones2 = new ArrayList<>();
+        phones=getAllPhone();
+
+        for (Phone phone : phones) {
+            if(model.equals(phone.getPhone_model()) && brand.equals(phone.getPhone_brand())) {
+                temp = phone;
+                phones2.add(temp);
+            }
+
+        }
+        return phones2;
+    }
+
+    public List<Phone> SearchPhoneByScreenSize_MemoryAndBrand(String  screen,String memory,String  brand ){
+        Phone temp = new Phone();
+        List<Phone> phones = new ArrayList<>();
+        List<Phone> phones2 = new ArrayList<>();
+        phones=getAllPhone();
+
+        for (Phone phone : phones) {
+            if(screen.equals(phone.getPhone_screenSize()) && memory.equals(phone.getPhone_internalMemory()) && brand.equals(phone.getPhone_brand())) {
+                temp = phone;
+                phones2.add(temp);
+            }
+
         }
         return phones2;
     }

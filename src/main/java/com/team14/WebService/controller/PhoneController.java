@@ -43,11 +43,22 @@ public class PhoneController {
 
     @GetMapping("/getPhoneByInternalMemory/{internalMemory}")
     public List<Phone> getPhoneByInternalMemory(@PathVariable String internalMemory){
-        return phoneService.getPhoneByScreenSize(internalMemory);
+        return phoneService.getPhoneByInternalMemory(internalMemory);
     }
 
     @GetMapping("/getPhoneByPrice/{price}")
-    public List<Phone> getPhoneByPrice(@PathVariable Float price){
+    public List<Phone> getPhoneByPrice(@PathVariable float price){
         return phoneService.getPhoneByPrice(price);
+    }
+
+
+    @GetMapping("/SearchPhoneByModelAndBrand/{model}/{brand}")
+    public List<Phone> SearchPhoneByModelAndBrand(@PathVariable String  model,@PathVariable String brand){
+        return phoneService.SearchPhoneByModelAndBrand(model,brand);
+    }
+
+    @GetMapping("/SearchPhoneByScreenSize_MemoryAndBrand/{screen}/{memory}/{brand}")
+    public List<Phone> SearchPhoneByScreenSize_MemoryAndBrand(@PathVariable String  screen,@PathVariable String  memory,@PathVariable String brand){
+        return phoneService.SearchPhoneByScreenSize_MemoryAndBrand(screen,memory,brand);
     }
 }

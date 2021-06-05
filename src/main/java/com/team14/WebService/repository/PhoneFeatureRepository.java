@@ -1,4 +1,7 @@
 package com.team14.WebService.repository;
 
-public interface PhoneFeatureRepository {
+import com.team14.WebService.entity.phoneFeatures;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface PhoneFeatureRepository  extends JpaRepository<phoneFeatures, Integer> {
 }

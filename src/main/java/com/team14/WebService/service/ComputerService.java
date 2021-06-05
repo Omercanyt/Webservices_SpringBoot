@@ -136,4 +136,41 @@ public class ComputerService {
         return computers2;
     }
 
+    public List<Computer> SearchComputerByMaximumPriceAndBrand(float price,String brand){
+        Computer temp = new Computer();
+        List<Computer> computers = new ArrayList<>();
+        List<Computer> computers2 = new ArrayList<>();
+        computers=getAllComputer();
+
+
+        for (Computer computer : computers) {
+            if(price<=computer.getComputerPrice() && brand.equals(computer.getComputerBrand())) {
+                temp = computer;
+                computers2.add(temp);
+            }
+
+        }
+        return computers2;
+    }
+
+    public List<Computer> SearchComputerByPorcessor_Memory_Capacity(String  proces,String memory, String capacity){
+        Computer temp = new Computer();
+        List<Computer> computers = new ArrayList<>();
+        List<Computer> computers2 = new ArrayList<>();
+        computers=getAllComputer();
+
+
+        for (Computer computer : computers) {
+            if(memory.equals(computer.getMemory()) && proces.equals(computer.getProcessor()) && capacity.equals(computer.getStorageCapacity())) {
+                temp = computer;
+                computers2.add(temp);
+            }
+
+        }
+        return computers2;
+    }
+
+
+
+
 }

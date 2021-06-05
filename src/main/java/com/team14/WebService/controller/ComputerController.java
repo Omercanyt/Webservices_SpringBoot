@@ -62,8 +62,20 @@ public class ComputerController {
         return computerService.getComputerByMemory(memory);
     }
 
+    @GetMapping("/SearchComputerByPorcessor_Memory_Capacity/{processor}/{memory}/{capacity}")
+    public List<Computer> SearchComputerByPorcessor_Memory_Capacity(@PathVariable String processor,@PathVariable String memory,@PathVariable String capacity){
+        return computerService.SearchComputerByPorcessor_Memory_Capacity(processor,memory,capacity);
+    }
+
+
     @GetMapping("/getComputerByStorageCapacity/{storageCapacity}")
     public List<Computer> getComputerByStorageCapacity(@PathVariable String storageCapacity){
         return computerService.getComputerByStorageCapacity(storageCapacity);
+    }
+
+
+    @GetMapping("/SearchComputerByMaximumPriceAndBrand/{price}/{brand}")
+    public List<Computer> SearchComputerByMaximumPriceAndBrand(@PathVariable float price,@PathVariable String brand){
+        return computerService.SearchComputerByMaximumPriceAndBrand(price,brand);
     }
 }

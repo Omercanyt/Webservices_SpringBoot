@@ -28,34 +28,66 @@ public class phoneComments {
     @JsonBackReference
     private Phone phoneComments;
 
+    /***
+     * getter for phoneCommentId
+     * @return phoneCommentId
+     */
     public int getPhoneCommentId() {
         return phoneCommentId;
     }
 
+    /***
+     * setter for phoneCommentId
+     * @param phoneCommentId
+     */
     public void setPhoneCommentId(int phoneCommentId) {
         this.phoneCommentId = phoneCommentId;
     }
 
+    /***
+     * getter for phoneCommentName
+     * @return phoneCommentName
+     */
     public String getPhoneCommentName() {
         return phoneCommentName;
     }
 
+    /***
+     * setter for phoneCommentName
+     * @param phoneCommentName
+     */
     public void setPhoneCommentName(String phoneCommentName) {
         this.phoneCommentName = phoneCommentName;
     }
 
+    /***
+     * getter phoneRating
+     * @return phoneRating
+     */
     public String getPhoneRating() {
         return phoneRating;
     }
 
+    /***
+     * setter for phoneRating
+     * @param phoneRating
+     */
     public void setPhoneRating(String phoneRating) {
         this.phoneRating = phoneRating;
     }
 
+    /***
+     * getter for phoneComments
+     * @return phoneComments
+     */
     public Phone getPhoneComments() {
         return phoneComments;
     }
 
+    /***
+     * setter for phoneComments
+     * @param phoneComments
+     */
     public void setPhoneComments(Phone phoneComments) {
         this.phoneComments = phoneComments;
     }

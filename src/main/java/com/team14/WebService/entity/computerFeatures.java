@@ -27,26 +27,50 @@ public class computerFeatures {
     @JsonBackReference
     private Computer computerFeature;
 
+    /***
+     * getter for compfeatureID
+     * @return compfeatureID
+     */
     public int getCompfeatureID() {
         return compfeatureID;
     }
 
+    /***
+     * setter for compfeatureID
+     * @param compfeatureID
+     */
     public void setCompfeatureID(int compfeatureID) {
         this.compfeatureID = compfeatureID;
     }
 
+    /***
+     * getter for compFeatureName
+     * @return compFeatureName
+     */
     public String getCompFeatureName() {
         return compFeatureName;
     }
 
+    /***
+     * setter for compFeatureName
+     * @param compFeatureName
+     */
     public void setCompFeatureName(String compFeatureName) {
         this.compFeatureName = compFeatureName;
     }
 
+    /***
+     * getter for computerFeature
+     * @return computerFeature
+     */
     public Computer getComputerFeature() {
         return computerFeature;
     }
 
+    /***
+     * setter for computerFeature
+     * @param computerFeature
+     */
     public void setComputerFeature(Computer computerFeature) {
         this.computerFeature = computerFeature;
     }

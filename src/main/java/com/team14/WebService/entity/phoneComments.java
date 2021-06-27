@@ -1,5 +1,8 @@
 package com.team14.WebService.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -20,8 +23,9 @@ public class phoneComments {
     private String phoneCommentName;
     private String phoneRating;
 
-    @ManyToOne
-    @JoinColumn(name="phone_id", nullable=false)
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="phone_id")
+    @JsonBackReference
     private Phone phoneComments;
 
     public int getPhoneCommentId() {

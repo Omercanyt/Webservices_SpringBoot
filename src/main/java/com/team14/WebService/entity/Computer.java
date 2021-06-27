@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 @Data
 @AllArgsConstructor
@@ -28,10 +29,10 @@ public class Computer {
     private String storageCapacity;
 
     @OneToMany(mappedBy="computerComments")
-    private Set<computerComments> computerComments;
+    private List<computerComments> computerComments;
 
     @OneToMany(mappedBy="computerFeature")
-    private Set<computerFeatures> computerFeatures;
+    private List<computerFeatures> computerFeatures;
 
     public int getComputerID() {
         return computerID;
@@ -105,19 +106,19 @@ public class Computer {
         this.storageCapacity = storageCapacity;
     }
 
-    public Set<com.team14.WebService.entity.computerComments> getComputerComments() {
+    public List<com.team14.WebService.entity.computerComments> getComputerComments() {
         return computerComments;
     }
 
-    public void setComputerComments(Set<com.team14.WebService.entity.computerComments> computerComments) {
+    public void setComputerComments(List<com.team14.WebService.entity.computerComments> computerComments) {
         this.computerComments = computerComments;
     }
 
-    public Set<com.team14.WebService.entity.computerFeatures> getComputerFeatures() {
+    public List<com.team14.WebService.entity.computerFeatures> getComputerFeatures() {
         return computerFeatures;
     }
 
-    public void setComputerFeatures(Set<com.team14.WebService.entity.computerFeatures> computerFeatures) {
+    public void setComputerFeatures(List<com.team14.WebService.entity.computerFeatures> computerFeatures) {
         this.computerFeatures = computerFeatures;
     }
 }

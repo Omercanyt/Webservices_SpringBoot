@@ -12,24 +12,26 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-
+@Table(name="Computer")
 public class Computer {
     @Id
     @GeneratedValue (strategy = GenerationType.AUTO)
+    @Column(name = "computerID")
     private int computerID;
     private float computerPrice;
     private String computerScreenSize;
     private String computerModel;
     private String computerBrand;
-    private String screenResolution;
+    private String screenRes;
     private String processor;
     private String memory;
     private String storageCapacity;
-    @OneToMany(mappedBy = "computerR", cascade = CascadeType.ALL)
-    private List<Rating> computerRatings;
-    @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(name = "computerfeatureRelation",joinColumns = @JoinColumn(name="computerID"), inverseJoinColumns = @JoinColumn(name = "compfeatureID"))
-    private List<computerFeatures> cofeatuers = new ArrayList<>();
+
+    @OneToMany(mappedBy="computerComments")
+    private Set<computerComments> computerComments;
+
+    @OneToMany(mappedBy="computerFeature")
+    private Set<computerFeatures> computerFeatures;
 
     public int getComputerID() {
         return computerID;
@@ -71,12 +73,12 @@ public class Computer {
         this.computerBrand = computerBrand;
     }
 
-    public String getScreenResolution() {
-        return screenResolution;
+    public String getScreenRes() {
+        return screenRes;
     }
 
-    public void setScreenResolution(String screenResolution) {
-        this.screenResolution = screenResolution;
+    public void setScreenRes(String screenRes) {
+        this.screenRes = screenRes;
     }
 
     public String getProcessor() {
@@ -103,19 +105,19 @@ public class Computer {
         this.storageCapacity = storageCapacity;
     }
 
-    public List<Rating> getComputerRatings() {
-        return computerRatings;
+    public Set<com.team14.WebService.entity.computerComments> getComputerComments() {
+        return computerComments;
     }
 
-    public void setComputerRatings(List<Rating> computerRatings) {
-        this.computerRatings = computerRatings;
+    public void setComputerComments(Set<com.team14.WebService.entity.computerComments> computerComments) {
+        this.computerComments = computerComments;
     }
 
-    public List<computerFeatures> getCofeatuers() {
-        return cofeatuers;
+    public Set<com.team14.WebService.entity.computerFeatures> getComputerFeatures() {
+        return computerFeatures;
     }
 
-    public void setCofeatuers(List<computerFeatures> cofeatuers) {
-        this.cofeatuers = cofeatuers;
+    public void setComputerFeatures(Set<com.team14.WebService.entity.computerFeatures> computerFeatures) {
+        this.computerFeatures = computerFeatures;
     }
 }

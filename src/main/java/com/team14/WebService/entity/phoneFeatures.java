@@ -30,26 +30,50 @@ public class phoneFeatures {
     @JsonBackReference
     private Phone phoneFeatures;
 
+    /***
+     * getter for phonefeatureID
+     * @return phonefeatureID
+     */
     public int getPhonefeatureID() {
         return phonefeatureID;
     }
 
+    /***
+     * setter for phonefeatureID
+     * @param phonefeatureID
+     */
     public void setPhonefeatureID(int phonefeatureID) {
         this.phonefeatureID = phonefeatureID;
     }
 
+    /***
+     * getter for phoneFeatureName
+     * @return phoneFeatureName
+     */
     public String getPhoneFeatureName() {
         return phoneFeatureName;
     }
 
+    /***
+     * setter for phoneFeatureName
+     * @param phoneFeatureName
+     */
     public void setPhoneFeatureName(String phoneFeatureName) {
         this.phoneFeatureName = phoneFeatureName;
     }
 
+    /***
+     * getter for phoneFeatures
+     * @return phoneFeatures
+     */
     public Phone getPhoneFeatures() {
         return phoneFeatures;
     }
 
+    /***
+     * setter for phoneFeatures
+     * @param phoneFeatures
+     */
     public void setPhoneFeatures(Phone phoneFeatures) {
         this.phoneFeatures = phoneFeatures;
     }

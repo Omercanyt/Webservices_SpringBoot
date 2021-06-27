@@ -15,10 +15,32 @@ import java.util.List;
 public class computerFeaturesService {
     @Autowired
     ComputerFeatureRepository computerFeatureRepository;
+
+    /**
+     * Saves the entered computer features to database
+     * @param compFeature used for saving the computer feature
+     * @return saves the given computer feature
+     */
     public computerFeatures saveComputerFeature (computerFeatures compFeature){ return computerFeatureRepository.save(compFeature);}
+
+    /**
+     * Returns the specific desired computer feature
+     * @param id belongs to a computer feature
+     * @return the computer feature with given id
+     */
     public computerFeatures getComputerFeature (int id){ return computerFeatureRepository.findById(id).orElse(null);}
+
+    /**
+     * Returns all computer features stored
+     * @return all the computer features stored int the database
+     */
     public List<computerFeatures> getAllComputerFeatures() { return computerFeatureRepository.findAll(); }
 
+    /**
+     * Returns all the features of a specific computer with given id
+     * @param id belongs to a computer
+     * @return all the features of the given computer by id taken
+     */
     public List<computerFeatures> getAllComputerFeaturesByComputerID(int id){
         List<computerFeatures> pList1 = new ArrayList<>();
         List<computerFeatures> pList2 = new ArrayList<>();

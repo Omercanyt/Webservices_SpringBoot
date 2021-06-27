@@ -14,10 +14,32 @@ import java.util.List;
 public class phoneCommentsService {
     @Autowired
     PhoneCommentRepository phoneCommentRepository;
+
+    /***
+     * Save a Phone Comment into database
+     * @param phoneComments is a Phone Comment to be saved into database
+     * @return
+     */
     public phoneComments savePhoneComments (phoneComments phoneComments){ return phoneCommentRepository.save(phoneComments);}
+
+    /***
+     * Gets a Phone Comment by its Phone Comment ID from database
+     * @param id is an integer to specify its Phone Comment ID
+     * @return a Phone Comment
+     */
     public phoneComments getPhoneComments (int id){ return phoneCommentRepository.findById(id).orElse(null);}
+
+    /***
+     * Gets a list of all Phone Comment from database
+     * @return a List of Phone Comment
+     */
     public List<phoneComments> getAllPhoneComments() { return phoneCommentRepository.findAll(); }
 
+    /***
+     * Gets a list of Phone Comment by its Phone ID from database
+     * @param id is an integer to specify its Phone ID
+     * @return a List of Phone Comment
+     */
     public List<phoneComments> getPhoneCommentsByPhoneID (int id) {
         //phoneComments temp = new phoneComments();
         List<phoneComments> pList1 = new ArrayList<>();

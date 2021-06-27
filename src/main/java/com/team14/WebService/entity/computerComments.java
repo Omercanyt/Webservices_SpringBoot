@@ -26,6 +26,10 @@ public class computerComments {
     @JsonBackReference
     private Computer computerComments;
 
+    /**
+     * Getter for computer comment id
+     * @return id of computer comment
+     */
     public int getComputerCommentId() {
         return computerCommentId;
     }
@@ -34,6 +38,10 @@ public class computerComments {
         this.computerCommentId = computerCommentId;
     }
 
+    /**
+     * Getter for computer comment
+     * @return comment of computer comment
+     */
     public String getComputerComment() {
         return computerComment;
     }
@@ -42,6 +50,10 @@ public class computerComments {
         this.computerComment = computerComment;
     }
 
+    /**
+     * Getter for computer rating
+     * @return id of computer rating
+     */
     public String getComputerRating() {
         return computerRating;
     }
@@ -50,6 +62,10 @@ public class computerComments {
         this.computerRating = computerRating;
     }
 
+    /**
+     * Getter for computer comments
+     * @return comments of computer comment
+     */
     public Computer getComputerComments() {
         return computerComments;
     }

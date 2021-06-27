@@ -19,9 +19,12 @@ public class phoneFeatures {
     @Id
     @GeneratedValue (strategy = GenerationType.AUTO)
     private int phonefeatureID;
+
     private String phoneFeatureName;
-    @ManyToMany(mappedBy = "phofeatures", cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
-    private List<Phone> phofets = new ArrayList<>();
+
+    @ManyToOne
+    @JoinColumn(name="phone_id", nullable=false)
+    private Phone phoneFeatures;
 
     public int getPhonefeatureID() {
         return phonefeatureID;
@@ -39,11 +42,11 @@ public class phoneFeatures {
         this.phoneFeatureName = phoneFeatureName;
     }
 
-    public List<Phone> getPhofets() {
-        return phofets;
+    public Phone getPhoneFeatures() {
+        return phoneFeatures;
     }
 
-    public void setPhofets(List<Phone> phofets) {
-        this.phofets = phofets;
+    public void setPhoneFeatures(Phone phoneFeatures) {
+        this.phoneFeatures = phoneFeatures;
     }
 }

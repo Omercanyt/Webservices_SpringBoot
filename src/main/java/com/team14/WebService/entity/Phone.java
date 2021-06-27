@@ -25,12 +25,13 @@ public class Phone {
     private String phone_screenSize;
     private String phone_internalMemory;
     private float price;
-    @OneToMany(mappedBy = "phoneR", cascade = CascadeType.ALL)
-    private List<Rating> phoneRatings;
-    @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(name = "phonefeatureRelation", joinColumns = @JoinColumn(name="phone_fkid"),inverseJoinColumns = @JoinColumn(name = "phonefeaturefkID"))
-    private List<phoneFeatures> phofeatures = new ArrayList<>();
 
+
+    @OneToMany(mappedBy="phoneComments")
+    private Set<phoneComments> phoneComments;
+
+    @OneToMany(mappedBy="phoneFeatures")
+    private Set<phoneFeatures> phoneFeatures;
 
     public int getPhone_id() {
         return phone_id;
@@ -80,19 +81,19 @@ public class Phone {
         this.price = price;
     }
 
-    public List<Rating> getPhoneRatings() {
-        return phoneRatings;
+    public Set<com.team14.WebService.entity.phoneComments> getPhoneComments() {
+        return phoneComments;
     }
 
-    public void setPhoneRatings(List<Rating> phoneRatings) {
-        this.phoneRatings = phoneRatings;
+    public void setPhoneComments(Set<com.team14.WebService.entity.phoneComments> phoneComments) {
+        this.phoneComments = phoneComments;
     }
 
-    public List<phoneFeatures> getPhofeatures() {
-        return phofeatures;
+    public Set<com.team14.WebService.entity.phoneFeatures> getPhoneFeatures() {
+        return phoneFeatures;
     }
 
-    public void setPhofeatures(List<phoneFeatures> phofeatures) {
-        this.phofeatures = phofeatures;
+    public void setPhoneFeatures(Set<com.team14.WebService.entity.phoneFeatures> phoneFeatures) {
+        this.phoneFeatures = phoneFeatures;
     }
 }

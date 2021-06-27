@@ -14,14 +14,16 @@ import java.util.Set;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-
+@Table(name = "ComputerFeatures")
 public class computerFeatures {
     @Id
     @GeneratedValue (strategy = GenerationType.AUTO)
     private int compfeatureID;
     private String compFeatureName;
-    @ManyToMany(mappedBy = "cofeatuers", cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
-    private Set<Computer> cofets = new HashSet<>();
+
+    @ManyToOne
+    @JoinColumn(name="computerID", nullable=false)
+    private Computer computerFeature;
 
     public int getCompfeatureID() {
         return compfeatureID;
@@ -39,11 +41,11 @@ public class computerFeatures {
         this.compFeatureName = compFeatureName;
     }
 
-    public Set<Computer> getCofets() {
-        return cofets;
+    public Computer getComputerFeature() {
+        return computerFeature;
     }
 
-    public void setCofets(Set<Computer> cofets) {
-        this.cofets = cofets;
+    public void setComputerFeature(Computer computerFeature) {
+        this.computerFeature = computerFeature;
     }
 }

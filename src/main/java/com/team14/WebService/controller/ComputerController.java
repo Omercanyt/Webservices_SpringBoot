@@ -47,10 +47,6 @@ public class ComputerController {
         return computerService.getComputerByModel(model);
     }
 
-    @GetMapping("/getComputerByScreenResolution/{screenRes}")
-    public List<Computer> getComputerByScreenResolution(@PathVariable String screenRes){
-        return computerService.getComputerByScreenResolution(screenRes);
-    }
 
     @GetMapping("/getComputerByProcessor/{processor}")
     public List<Computer> getComputerByProcessor(@PathVariable String processor){

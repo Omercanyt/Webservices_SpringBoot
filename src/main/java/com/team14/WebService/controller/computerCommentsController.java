@@ -20,4 +20,7 @@ public class computerCommentsController {
     public computerComments getComputerComments(@PathVariable int id) { return computerCommentsServiceObj.getComputerComments(id); }
     @GetMapping("/getAllComputerComments")
     public List<computerComments> getAllComputerComments() { return computerCommentsServiceObj.getAllComputerComments();}
+
+    @GetMapping("/getAllComputerByComputerID/{id}")
+    public List<computerComments> getAllComputerByComputerID(@PathVariable int id){return computerCommentsServiceObj.getAllComputerByComputerID(id);}
 }

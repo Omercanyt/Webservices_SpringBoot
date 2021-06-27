@@ -14,11 +14,11 @@ public class ComputerController {
     ComputerService computerService;
 
     @PostMapping("/addComputer")
-    public Computer saveComputer(@RequestBody Computer r){
+    public Computer saveComputer(@RequestBody Computer r) throws InterruptedException {
         return computerService.saveComputer(r);
     }
     @GetMapping("/getComputer/{id}")
-    public Computer getComputer(@PathVariable int id){
+    public Computer getComputer(@PathVariable int id) throws InterruptedException {
         return computerService.getComputer(id);
     }
 

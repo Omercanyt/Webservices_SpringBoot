@@ -8,20 +8,33 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 
 @Service
 public class ComputerService {
     @Autowired
     ComputerRepository computerRepository;
+    Lock lock = new ReentrantLock();
 
-    public Computer saveComputer(Computer c){
-        return computerRepository.save(c);
+    public Computer saveComputer(Computer c) throws InterruptedException{
+        lock.lock();
+        //Thread.sleep(10000);
+        Computer temp = computerRepository.save(c);
+        lock.unlock();
+        return temp;
     }
-    public Computer getComputer(int id){
-        return computerRepository.findById(id).orElse(null);
+    public Computer getComputer(int id) throws InterruptedException{
+        lock.lock();
+        Computer temp = computerRepository.findById(id).orElse(null);
+        lock.unlock();
+        return temp;
     }
     public List<Computer> getAllComputer(){
-        return computerRepository.findAll();
+        lock.lock();
+        List<Computer> tempComputerList = computerRepository.findAll();
+        lock.unlock();
+        return tempComputerList;
     }
 
     public List<Computer> getComputerByBrand(String s){

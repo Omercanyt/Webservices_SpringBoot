@@ -9,24 +9,37 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 
 @Service
 public class PhoneService {
     @Autowired
     PhoneRepository phoneRepository;
+    Lock lock = new ReentrantLock();
 
-    public Phone savePhone(Phone p){
-        return phoneRepository.save(p);
+    public Phone savePhone(Phone p) throws InterruptedException{
+        lock.lock();
+        //Thread.sleep(10000);
+        Phone temp = phoneRepository.save(p);
+        lock.unlock();
+        return temp;
     }
-    public Phone getPhone(int id){
-        return phoneRepository.findById(id).orElse(null);
+    public Phone getPhone(int id) throws InterruptedException{
+        lock.lock();
+        Phone temp = phoneRepository.findById(id).orElse(null);
+        lock.unlock();
+        return temp;
     }
 
-    public List<Phone> getAllPhone(){
-        return phoneRepository.findAll();
+    public List<Phone> getAllPhone() throws InterruptedException{
+        lock.lock();
+        List<Phone> tempPhoneList = phoneRepository.findAll();
+        lock.unlock();
+        return tempPhoneList;
     }
 
-    public List<Phone> getPhoneByBrand(String s){
+    public List<Phone> getPhoneByBrand(String s) throws InterruptedException {
         Phone temp = new Phone();
         List<Phone> phones = new ArrayList<>();
         List<Phone> phones2 = new ArrayList<>();
@@ -40,7 +53,7 @@ public class PhoneService {
         return phones2;
     }
 
-    public List<Phone> getPhoneByModel(String s){
+    public List<Phone> getPhoneByModel(String s) throws InterruptedException {
         Phone temp = new Phone();
         List<Phone> phones = new ArrayList<>();
         List<Phone> phones2 = new ArrayList<>();
@@ -54,7 +67,7 @@ public class PhoneService {
         return phones2;
     }
 
-    public List<Phone> getPhoneByScreenSize(String s){
+    public List<Phone> getPhoneByScreenSize(String s) throws InterruptedException {
         Phone temp = new Phone();
         List<Phone> phones = new ArrayList<>();
         List<Phone> phones2 = new ArrayList<>();
@@ -68,7 +81,7 @@ public class PhoneService {
         return phones2;
     }
 
-    public List<Phone> getPhoneByInternalMemory(String s){
+    public List<Phone> getPhoneByInternalMemory(String s) throws InterruptedException {
         Phone temp = new Phone();
         List<Phone> phones = new ArrayList<>();
         List<Phone> phones2 = new ArrayList<>();
@@ -82,7 +95,7 @@ public class PhoneService {
         return phones2;
     }
 
-    public List<Phone> getPhoneByPrice(float s){
+    public List<Phone> getPhoneByPrice(float s) throws InterruptedException {
         Phone temp = new Phone();
         List<Phone> phones = new ArrayList<>();
         List<Phone> phones2 = new ArrayList<>();
@@ -96,7 +109,7 @@ public class PhoneService {
         return phones2;
     }
 
-    public List<Phone> SearchPhoneByModelAndBrand(String  model,String brand){
+    public List<Phone> SearchPhoneByModelAndBrand(String  model,String brand) throws InterruptedException {
         Phone temp = new Phone();
         List<Phone> phones = new ArrayList<>();
         List<Phone> phones2 = new ArrayList<>();
@@ -112,7 +125,7 @@ public class PhoneService {
         return phones2;
     }
 
-    public List<Phone> SearchPhoneByScreenSize_MemoryAndBrand(String  screen,String memory,String  brand ){
+    public List<Phone> SearchPhoneByScreenSize_MemoryAndBrand(String  screen,String memory,String  brand ) throws InterruptedException {
         Phone temp = new Phone();
         List<Phone> phones = new ArrayList<>();
         List<Phone> phones2 = new ArrayList<>();

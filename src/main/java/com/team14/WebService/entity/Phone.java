@@ -1,5 +1,8 @@
 package com.team14.WebService.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -28,10 +31,15 @@ public class Phone {
 
 
     @OneToMany(mappedBy="phoneComments")
-    private Set<phoneComments> phoneComments;
+    //@JsonIgnore
+    @JsonManagedReference
+    private List<phoneComments> phoneComments ;
+
 
     @OneToMany(mappedBy="phoneFeatures")
-    private Set<phoneFeatures> phoneFeatures;
+    //@JsonIgnore
+    @JsonManagedReference
+    private List<phoneFeatures> phoneFeatures;
 
     public int getPhone_id() {
         return phone_id;
@@ -81,19 +89,19 @@ public class Phone {
         this.price = price;
     }
 
-    public Set<com.team14.WebService.entity.phoneComments> getPhoneComments() {
+    public List<com.team14.WebService.entity.phoneComments> getPhoneComments() {
         return phoneComments;
     }
 
-    public void setPhoneComments(Set<com.team14.WebService.entity.phoneComments> phoneComments) {
+    public void setPhoneComments(List<com.team14.WebService.entity.phoneComments> phoneComments) {
         this.phoneComments = phoneComments;
     }
 
-    public Set<com.team14.WebService.entity.phoneFeatures> getPhoneFeatures() {
+    public List<com.team14.WebService.entity.phoneFeatures> getPhoneFeatures() {
         return phoneFeatures;
     }
 
-    public void setPhoneFeatures(Set<com.team14.WebService.entity.phoneFeatures> phoneFeatures) {
+    public void setPhoneFeatures(List<com.team14.WebService.entity.phoneFeatures> phoneFeatures) {
         this.phoneFeatures = phoneFeatures;
     }
 }

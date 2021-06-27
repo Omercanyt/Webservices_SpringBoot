@@ -80,19 +80,7 @@ public class ComputerService {
         return computers2;
     }
 
-    public List<Computer> getComputerByScreenResolution(String s){
-        Computer temp = new Computer();
-        List<Computer> computers = new ArrayList<>();
-        List<Computer> computers2 = new ArrayList<>();
-        computers=getAllComputer();
-        for (Computer computer : computers) {
-            if (computer.getScreenResolution().equals(s)) {
-                temp = computer;
-                computers2.add(temp);
-            }
-        }
-        return computers2;
-    }
+
 
     public List<Computer> getComputerByProcessor(String s){
         Computer temp = new Computer();

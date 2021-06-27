@@ -1,5 +1,6 @@
 package com.team14.WebService.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -21,8 +22,9 @@ public class computerFeatures {
     private int compfeatureID;
     private String compFeatureName;
 
-    @ManyToOne
-    @JoinColumn(name="computerID", nullable=false)
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="computerID")
+    @JsonBackReference
     private Computer computerFeature;
 
     public int getCompfeatureID() {

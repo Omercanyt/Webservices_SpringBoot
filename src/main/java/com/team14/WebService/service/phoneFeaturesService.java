@@ -15,10 +15,32 @@ import java.util.List;
 public class phoneFeaturesService {
     @Autowired
     PhoneFeatureRepository phoneFeatureRepository;
+
+    /***
+     * Saves Phone Feature into database
+     * @param phonFeature is a Phone Feature to be saved into database
+     * @return
+     */
     public phoneFeatures savePhoneFeature (phoneFeatures phonFeature){ return phoneFeatureRepository.save(phonFeature);}
+
+    /***
+     * Gets a Phone Feature by its Phone Feature ID from database
+     * @param id is an integer to specify its Phone Feature ID
+     * @return a Phone Feature
+     */
     public phoneFeatures getPhoneFeature (int id){ return phoneFeatureRepository.findById(id).orElse(null);}
+
+    /***
+     * Gets a list of all Phone Features from database
+     * @return a list of Phone Features
+     */
     public List<phoneFeatures> getAllPhoneFeatures() { return phoneFeatureRepository.findAll(); }
 
+    /***
+     * Gets a list of all Phone Features by its Phone ID
+     * @param id is an integer to specify its Phone ID
+     * @return a list of Phone Features
+     */
     public List<phoneFeatures> getAllPhoneFeaturesByPhoneID(int id){
         List<phoneFeatures> pList1 = new ArrayList<>();
         List<phoneFeatures> pList2 = new ArrayList<>();

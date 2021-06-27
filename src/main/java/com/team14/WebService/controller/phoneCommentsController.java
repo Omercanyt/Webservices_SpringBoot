@@ -22,4 +22,6 @@ public class phoneCommentsController {
     public List<phoneComments> getPhoneCommentsByPhoneID(@PathVariable int id) { return phoneCommentsServiceObj.getPhoneCommentsByPhoneID(id); }
 
 
+
+
 }
